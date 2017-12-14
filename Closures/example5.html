@@ -1,0 +1,36 @@
+!DOCTYPE html>
+<html>
+<body>
+
+<p>Closures can share scope
+    when we define multiple functions in the same scope, that scope is shared among all created closures</p>
+
+
+
+<script>
+
+/* Closures can share scope
+ when we define multiple functions in the same scope, that scope is shared among all created closures */
+function parent() {
+    let a = 10;
+    
+    function double() {
+      a = a+a;
+     console.log(a);
+    };
+    
+    function square() {
+      a = a*a;
+     console.log(a);
+    }
+    
+    return { double, square }
+  }
+  let { double, square } = parent();
+  double(); // prints 20
+  square(); // prints 400 (every time updates value of a ,here a=400)
+  double(); // prints 800  (double like a=400+400)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+!DOCTYPE html>
+<html>
+<body>
+
+<p>
+    Closures are created when you define a function, not when you execute it. Closures also don’t go away after you execute that function.
+    You can access the data in a closure long after a function is defined and after it gets executed as well.
+</p>
+
+
+<script>
+
+/*    Closures are created when you define a function, not when you execute it. Closures also don’t go away after you execute that function.
+You can access the data in a closure long after a function is defined and after it gets executed as well.*/
+var G = 'G';
+                    
+function functionA() {
+    // Define a function and create a closure
+  var A = 'A'
+  
+ 
+  function functionB() { // Define a function and create a closure
+    var B = 'B'
+    console.log(A, B, G);
+  }
+  
+  functionB();  // prints A, B, G
+    // functionB closure does not get discarded
+  A = 42;
+  functionB();  // prints 42, B, G
+}
+functionA();
+
+
+</script>
+
+</body>
+</html>

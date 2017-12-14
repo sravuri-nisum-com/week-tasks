@@ -1,0 +1,24 @@
+!DOCTYPE html>
+<html>
+<body>
+
+<p></p>
+
+<script>
+
+var v = 1;
+var f1 = function () {
+   console.log(v);
+}
+var f2 = function() {
+  var v = 2;
+//   console.log(v); prints 2 
+  f1(); // prints 1 i,e in f1() console.log(v)=1
+  
+};
+// v=60;   //if we declare v=60 , console.log(v) in  fun f1() prints 60  ,otherwise prints 1
+f2();
+</script>
+
+</body>
+</html>
