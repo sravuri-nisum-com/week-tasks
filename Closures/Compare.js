@@ -18,7 +18,7 @@ console . log ( twice (5) ) ; // 10
 // variables and also allows for the creative use of function values.
 
 // One the major drawback of using closures is that, it consumes more memory and 
-// if not used properly can lead to ‘memory leaks’.
+// if not used properly can lead to ‘memory leaks’. explained for bellow example 
 function parent() {
 
    let num = 5;
@@ -40,8 +40,10 @@ console.log(result()); // 5
 //here in above example When the function parent is called, the local variable num is created and is assigned a value.
 // The parent function returns the function named child.
 
-// It is important to note that, the local variable num of the outer function(parent) 
-// exists even after the outer function has returned, as the inner function child holds the reference to the outer function variable num, so the variable num will not be garbage collected. Whereas in regular functions, when the function returns, its local variables no longer exists.
+// the local variable num of the outer function(parent) 
+// exists even after the outer function has returned, as the inner function child holds the reference to 
+// the outer function variable num, so the variable num will not be garbage collected. Whereas in regular functions, 
+// when the function returns, its local variables no longer exists.
 
 // In such case, we need to release the memory explicitly by assigning null to the variables.
 
