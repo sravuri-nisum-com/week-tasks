@@ -38,5 +38,5 @@ var events = (function(){
     // Do something now that the event has occurred
   });
   
-  // ...sometime later where I no longer want subscription...
+  // if no longer need of  subscription...
   subscription.remove();
