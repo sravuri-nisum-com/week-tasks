@@ -28,3 +28,15 @@ var events = (function(){
       }
     };
   })();
+// Publishing to a topic:
+  events.publish('/page/load', {
+    url: '/some/url/path' // any argument
+  });
+
+  //subscribing to said topic in order to be notified of events:
+  var subscription = events.subscribe('/page/load', function(obj) {
+    // Do something now that the event has occurred
+  });
+  
+  // ...sometime later where I no longer want subscription...
+  subscription.remove();
