@@ -26,6 +26,15 @@ var UserModel = Backbone.Model.extend({
         });
 
       },
+    ///////// when   backbone model is created, its constructor gets called.
+    //    The constructor will call the initialize function. It is also possible to provide out own
+    //  constructor and provide the custom behavior.
+      constructor: function (attributes, options) {
+        console.log('Book\'s constructor had been called');//it overrides initialize funtions console.log() output
+        Backbone.Model.apply(this, arguments);// used to get  remain both initialize function and constructor functions
+    },
+    
+    
     
       setFullName: function () { //seeting full name 
         this.set('fullName', this.get('firstName') + ' ' + this.get('lastName'));
