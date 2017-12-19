@@ -10,6 +10,9 @@ var PersonView = Backbone.View.extend({
     tagName: 'li',
 //undesrscore method
     my_template: _.template("<strong><%= name %></strong> (<%= age %>) - <%= occupation %>"),
+    //           (or)
+
+    template: _.template( $('#personTemplate').html() ),//giving html element (#id) reference
 
     initialize: function(){
         this.render();
