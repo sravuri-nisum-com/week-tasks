@@ -9,6 +9,8 @@ var UserModel = Backbone.Model.extend({
       },
     
       initialize: function () {//initializing functions
+          console.log("UserModel has been initialized");
+       
         this.setFullName();
         this.setDate();
           // some event handlers to listen to model change
@@ -30,7 +32,7 @@ var UserModel = Backbone.Model.extend({
     //    The constructor will call the initialize function. It is also possible to provide out own
     //  constructor and provide the custom behavior.
       constructor: function (attributes, options) {
-        console.log('Book\'s constructor had been called');//it overrides initialize funtions console.log() output
+        console.log('UserModel\'s constructor had been called');//it overrides initialize funtions console.log() output
         Backbone.Model.apply(this, arguments);// used to get  remain both initialize function and constructor functions
     },
     
