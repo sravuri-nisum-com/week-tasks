@@ -11,6 +11,20 @@ var UserModel = Backbone.Model.extend({
       initialize: function () {//initializing functions
         this.setFullName();
         this.setDate();
+          // some event handlers to listen to model change
+        this.on('change',  function() {
+            if(this.hasChanged('firstName')){
+                console.log("FirstName has been changed");
+            }
+            if(this.hasChanged('lastname')){
+                console.log("LastName has been changed");
+            }
+        });
+        //Change in any specific attribute
+        this.on('change:lastname', function () {
+            console.log('Message from specific listener: LastName has been changed');
+        });
+
       },
     
       setFullName: function () { //seeting full name 
