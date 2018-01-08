@@ -374,3 +374,11 @@ display: none;
       }
     
   }
+@media (max-width: 1024px) {
+    .block-2 {
+        display: none;
+      }
+      .small2{
+        margin-top:10%;
+    }
+  }
