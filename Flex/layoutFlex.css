@@ -30,7 +30,7 @@ div, h2, p, figure {
   }
   .nav-wrapper li {
     flex: 1;
-    font-size: 4vh;
+    font-size: 2vh;
     border-top: 1px solid #e3e3e3;
     border-right: 1px solid #e3e3e3;
     border-bottom: 1px solid #e3e3e3;
