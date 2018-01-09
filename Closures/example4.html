@@ -1,0 +1,39 @@
+!DOCTYPE html>
+<html>
+<body>
+
+<p>Closures give us references to variables in scopes, the access that they give us means both read and write, not just read.</p>
+
+<script>
+
+/* closures give us references to variables in scopes, the access that they give us means both read and write, not just read.*/
+function outer() {
+    var a = 42;
+  //   console.log(a);
+  function inner() {
+      a = 43;
+    }
+  inner();
+    console.log(a);//overwrites value of 'a' to 43
+  }
+  outer();
+ 
+  /******write******/
+
+  function name() {
+    var name = "Disney";
+    function displayName() {
+        alert (name);
+    }
+    function setName(newName) {
+        name = newName;
+    }
+    displayName();
+    setName("Disney Land");
+    displayName();//overrides name with new name "Disney Land"
+}
+name();
+</script>
+
+</body>
+</html>
