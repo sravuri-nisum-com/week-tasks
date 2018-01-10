@@ -266,7 +266,7 @@ h1 { font-size: 2.25em; }
     font-size: 1em;
 }
 
-@media (min-width: 1200px)
+@media all and (min-width: 1200px)
 {
     .small-nav{ display: none; }/*hides small screen nav bar */
     .small2{ display: none;}
@@ -322,7 +322,7 @@ h1 { font-size: 2.25em; }
         display:none;
     }
 }
-@media (max-width: 1200px){
+@media all and (max-width: 1200px){
     .nav-items{ display: none; } /* hides nav bar  */
     
     .left-bar{
@@ -374,11 +374,30 @@ display: none;
       }
     
   }
-@media (max-width: 1024px) {
+@media all and (max-width: 1024px) {
     .block-2 {
         display: none;
       }
       .small2{
         margin-top:10%;
+    }
+      .block-1{
+        padding-right: 10%;
+        /* border-bottom: 1px solid #e3e3e3; */
+    }
+    .block1-crumb {
+        margin:1% 1% 1% 65%;
+        padding: 10px 16px;
+        list-style: none;
+       
+    }
+     .block1-crumb li{
+        display: inline;
+        font-size: 15px;
+    }
+    .block1-crumb li+li:before {
+        padding: 8px;
+        color: black;
+        content: "/\00a0";
     }
   }
