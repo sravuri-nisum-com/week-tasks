@@ -1,4 +1,4 @@
-describe("Tests for a custom Backbone View", function() {
+describe("Tests for a custom Backbone single Contact View", function() {
   it("ContactManager.Views.Contact", function() {
   	expect(ContactManager.Views.Contact).toBeDefined();
   
@@ -26,30 +26,43 @@ describe("Tests for a custom Backbone View", function() {
   	expect(contactView.events['click .delete-contact']).toBeDefined();
   	expect(contactView.events['click .delete-contact']).toEqual('onClickDelete');
   });
+
+  it("should have edit  buttons", function() {
+    // expect(contactView.$el.find('a.delete-contact')).toBeDefined();
+    expect(contactView.$el.find('a #edit')).toBeDefined();
+  });
+  it("should have delete buttons", function() {
+    expect(contactView.$el.find('a.delete-contact')).toBeDefined();
+    // expect(contactView.$el.find('a #edit')).toBeDefined();
+  });
+
+  // describe("Rendering", function() {
+
+  //   it("returns the view object", function() {
+  //     expect(this.contactView .render()).toEqual(this.contactView );
+  //   });
+
+  //   // it("produces the correct HTML", function() {
+  //   //   this.contactView .render();
+  //   //   expect(this.contactView .el.innerHTML)
+  //   //     .toEqual('<a href="#todo/1"><h2>My Todo</h2></a>');
+  //   // });
+
+  // });
+
+  
+
 });
 
     
-  describe("Template for listing", function() {
-    beforeEach(function() {
-      this.contactView.render();
-    });
-    
-    it("should have main-container element", function() {
-      expect(this.contactView.$el.find('.main-container')).toBeDefined();
-    });
-    
-    it("should have edit and delete buttons", function() {
-      expect(this.contactView.$el.find('a.delete-contact')).toBeDefined();
-      expect(this.contactView.$el.find('a #edit')).toBeDefined();
-    });
-  });
+  
 
-  describe("Tests for a custom Backbone View", function() {
+describe("Tests for a custom Backbone Contacts List View", function() {
     it("ContactManager.Views.Contacts", function() {
       expect(ContactManager.Views.Contacts).toBeDefined();
     
     });
-    var   contact, contactView;
+    var   contact, contactsView ;
   
     beforeEach(function() {
       contact = new ContactManager.Models.Contact({
@@ -66,9 +79,67 @@ describe("Tests for a custom Backbone View", function() {
       });
     });
   
+    it("should have contacts-container element", function() {
+      expect(contactsView.$el.find('.contacts-container')).toBeDefined();
+    });
+});
+describe("Tests for a custom Backbone ContactForm", function() {
+  it("ContactManager.Views.ContactForm", function() {
+    expect(ContactManager.Views.ContactForm).toBeDefined();
   
   });
- 
+  var   contact,contactFormView;
+
+  beforeEach(function() {
+    contact = new ContactManager.Models.Contact({
+      name:"sam",
+      tel:"849-219-6965",
+      email:"sr@gmail.com",
+      avatar:"6.jpg"
+    });
+
+    spyOn(ContactManager.Views.ContactForm.prototype,'render').and.callThrough();
+
+    contactFormView = new ContactManager.Views.Contact({
+      model: contact
+    });
+  });
+
+  describe('contact-form instantiation ', function () {
+
+    it('should create add contact container', function () {
+        expect(contactFormView.$el.find('#cm-new-contact')).toBeDefined();
+    });
+
+    it('should populate the form fields with values from the model', function() {
+       expect($('.contact-name-input').val()).toBe(contactFormView.model.get('sam'));
+       expect($('.contact-email-input').val()).toBe(contactFormView.model.get('sr@gmail.com'));
+       expect($('.contact-tel-input').val()).toBe(contactFormView.model.get('849-219-6965'));
+      
+    });
+});
+
+describe('saving values back to the model', function() {
+
+    it('should save entered values back to our model', function() {
+      contact = new ContactManager.Models.Contact({
+        name:"sam",
+        email:"sr@gmail.com",
+        tel:"849-219-6965"
+       
+        // avatar:"6.jpg"
+      });
+        $('.contact-name-input').val(name);
+        $('.contact-email-input').val(email);
+        $('.contact-tel-input').val(tel);
+        $('button').trigger('submit');
+
+        expect(contactFormView.contact.get('sam')).toBe(name);
+        expect(contactFormView.contact.get('sr@gmail.com')).toBe(email);
+        expect(contactFormView.contact.get('849-219-6965')).toBe(tel);
+    });
+  });
+});
 // describe("Contact model view", function() {
     // beforeEach(function() {
     //   this.collection = new ContactManager.Collections.Contacts ();
